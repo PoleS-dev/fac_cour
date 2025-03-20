@@ -1,0 +1,14 @@
+<h1>PAGE1</h1>
+<a href="PAGE2.php?article=jean&couleur=rouge&prix=123">allez sur la page 2</a>
+
+
+02_cote_back.php : C'est le nom du fichier PHP cible sur le serveur. Lorsque le lien est cliqué, une requête HTTP est envoyée à ce fichier.
+
+? : Ce caractère indique le début des paramètres GET qui sont envoyés au fichier PHP. Les paramètres GET sont utilisés pour transmettre des informations entre les pages web via l'URL.
+
+article=jean : C'est un paramètre GET. article est la clé et jean est la valeur associée à cette clé. Dans ce cas, cela indique que l'élément concerné par le lien est un "jean".
+
+
+& : Ce caractère est utilisé pour séparer plusieurs paramètres GET dans une URL.
+
+Lorsque le lien est cliqué, ces informations (article=jean, couleur=bleu, prix=30) sont envoyées au serveur via l'URL. Le serveur, utilisant le script PHP 02_cote_back.php, peut alors traiter ces informations pour effectuer une action, comme afficher les détails d'un jean bleu qui coûte 30 euros. Cela pourrait inclure extraire ces données de la base de données et les afficher sur la page web.
