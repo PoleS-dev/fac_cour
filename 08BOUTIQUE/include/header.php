@@ -12,6 +12,8 @@
     <title>Document</title>
     <link href="<?= ROOT ?>/asset/css/style.css" rel="stylesheet">
 
+   
+    ?>
 
 </head>
 
@@ -37,7 +39,7 @@
                     <?php
                     if (empty($_SESSION)) {
 
-                        echo '<button> <a href="' . ROOT . '/">connexion</a></button>';
+                        echo '<button> <a href="' . ROOT . '/courPHPfacundo/08BOUTIQUE/">connexion</a></button>';
                     } else {
 
                         echo '<button> <a href="' . ROOT . '/deconnexion">Déconnexion</a></button>';

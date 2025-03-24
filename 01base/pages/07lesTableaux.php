@@ -3,10 +3,26 @@ include_once "../utils.php";
 // LES TABLEAUX (les array)***************************************
 
 
+// il existe 3 type de tableau en php 
 
+// les tableaux indexé : $tab=array("element1,elements2), ou $atb1=[index1,index2,2]
+// les tableaux associatif $tab3=[
+//  "user"=>"mimi"
+//]
+// les tableaux multidimentionnels 
+
+// $tab4=[
+//     "user"=>[
+//         "name"=>"mimi"
+//             ],
+    
+// ];
 
 // declaration d'un array (methode 1)
 $liste=array("element","element");
+// methode 2
+
+$liste2=["elments","elememtns"];
 
 
 
@@ -56,6 +72,7 @@ echo "</pre>";
 
 $tab = ['France', 'Italie', 'Espagne', 'Portugal'];
 $tab[] = 'Suisse'; // les [] vides permettent d\'ajouter une valeur à la fin de notre array</p>';
+array_push($tab, "argentine","mexique");
 
 echo "<br>";
 echo " tets $tab";
@@ -69,15 +86,6 @@ debug($tab1);
 
    // Afficher "Italie" à partir de notre tableau $tab :
 echo $tab[1] . '<br>';
-
-
-
-
-
-
- // Déclaration d'un array (méthode 1) :
- $liste2 = array('grégoire', 'nathalie', 'émilie', 'françois', 'georges');
-
 
 
  //********************************************************************* */
@@ -94,6 +102,20 @@ $couleur = array(
 );
 // Pour accéder à un élément du tableau associatif :
     $couleur['b'] ;
+// ajouter élements d'un tableau
+$couleur['r'] = 'rouge'; // Ajoute la clé 'r' avec la valeur 'rouge'
+$couleur += [
+    'n' => 'noir',
+    'o' => 'orange'
+];
+
+// Array
+// (
+//     [j] => jaune
+//     [b] => bleu
+//     [0] => vert
+// )
+// 🟥 PHP a ajouté "vert" avec une clé numérique automatique (0)
 
 
 
@@ -107,11 +129,14 @@ $users = [
     "email" => null
 ];
 
-echo "gfegegz";
 
 
   // prends comme arguments le clé recherché puis le tableau ou doit être cette clé
+// array_key_exists() est une fonction prédéfinie en PHP qui vérifie si une clé existe dans un tableau, peu importe sa valeur.
+// Ne pas confondre avec isset()
+// isset($tableau['cle']) ➜ Vérifie si la clé existe ET n’est pas null
 
+// array_key_exists('cle', $tableau) ➜ Vérifie juste si la clé existe, même si sa valeur est null
 if (array_key_exists("email", $users)) {            // return true
     echo "La clé 'email' existe dans le tableau !";
 } else {                                            // return false
@@ -144,33 +169,26 @@ if (isset($utilisateur["email"])) {
 
 
 
+// modifier une clé 
+
+// $fruits["fruit_b"] = $fruits["f2"];
+// unset($fruits["f2"]);
 
 
- // MESURER LA TAILLE D'UN TABLEAU
-
-
-    echo 'Taille du tableau $couleur (tableau assioaciatif)  avec count(): ' . count($couleur) . '<br>';
-    echo 'Taille du tableau $couleur : ' . sizeof($couleur) . '<br>';  // count() et sizeof() font la même chose : ils comptent le nombre d'éléments contenus dans l'array indiqué
-    echo 'Taille du tableau $list avec sizeof : ' . sizeof($liste) . '<br>';  // count() et sizeof() font la même chose : ils comptent le nombre d'éléments contenus dans l'array indiqué
-
-
-
-
-//**************************************************************************** */
 
 
 
 // TABLEAU MILTIDIMENTIONNEL
 
 
-   // Nous parlons de tableau multidimensionnel quand un tableau est contenu dans un autre tableau. Chaque tableau représente une dimension
+// Nous parlons de tableau multidimensionnel quand un tableau est contenu dans un autre tableau. Chaque tableau représente une dimension
 
 
-    // création d'un array multidimensionnel :
-    $tab_multi = array(
-        0 => array(
-            'prenom' => 'Julien',
-            'nom'    => 'Dupon',
+// création d'un array multidimensionnel :
+$tab_multi = array(
+    0 => array(
+        'prenom' => 'Julien',
+        'nom'    => 'Dupon',
             'telephone' => '0601020304'
         ),
         1 => array(
@@ -181,32 +199,39 @@ if (isset($utilisateur["email"])) {
         2 => array(
             'prenom' => 'Pierre',
             'nom'    => 'Dulac'
-        )
-    ); // il est possible de choisir le nom des indices dans cet array multidimensionnel
-
-
-    debug($tab_multi);
-
-// Accéder à la valeur "Julien" dans cet array :
-
-echo $tab_multi[0]['prenom'];  // affiche Julien. Nous entrons d'abord à l'indice [0] de $tab_multi, pour ensuite aller à l'indice ['prenom'] dans le sous-tableau
-
-echo "<br/>";
-// Parcourir le tableau multidimensionnel avec une boucle for :
-    
-    for ($i = 0; $i < count($tab_multi); $i++) {
-        echo $tab_multi[$i]['prenom'] . '<br>';
-    }
-    echo '<hr>';
-    
-    echo "<br/>";
-    echo " je suis un test";
-
-
-
-    
-    
-
+            )
+        ); // il est possible de choisir le nom des indices dans cet array multidimensionnel
+        
+      //  $fruits["f3"] = ["nom" => "kiwi", "couleur" => "vert"];    
+        debug($tab_multi);
+        
+        // MESURER LA TAILLE D'UN TABLEAU
+        
+        
+           echo 'Taille du tableau $couleur (tableau assioaciatif)  avec count(): ' . count($couleur) . '<br>';
+        
+        //**************************************************************************** */
+        
+        // Accéder à la valeur "Julien" dans cet array :
+        
+        echo $tab_multi[0]['prenom'];  // affiche Julien. Nous entrons d'abord à l'indice [0] de $tab_multi, pour ensuite aller à l'indice ['prenom'] dans le sous-tableau
+        
+        echo "<br/>";
+        // Parcourir le tableau multidimensionnel avec une boucle for :
+            
+            for ($i = 0; $i < count($tab_multi); $i++) {
+                echo $tab_multi[$i]['prenom'] . '<br>';
+            }
+            echo '<hr>';
+            
+            echo "<br/>";
+            echo " je suis un test";
+            
+            
+            
+            
+            
+            
 //EXO 
 
 /**Exercice 1 : Créer un tableau simple

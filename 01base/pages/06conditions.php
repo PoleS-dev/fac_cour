@@ -134,6 +134,16 @@ $var1 = $variableInconnue ?? $varAutre ?? 'valeur par défaut';  //  l'opérateu
 echo $var1; // affiche 'valeur par défaut'
 
 // Utilisation : pour pré-remplir les values des formulaires quand l'internaute aura saisi et envoyé des valeurs.
+// Voici comment l'opération se déroule :
+
+// Si $variableInconnue existe et n'est pas null, sa valeur est assignée à $var1.
+
+// Si $variableInconnue est null (ou n'existe pas), PHP vérifie ensuite $varAutre.
+
+// Si $varAutre n'est pas null, sa valeur est assignée à $var1.
+
+// Si $varAutre est également null, alors 'valeur par défaut' est assignée à $var1.
+
 
 
 
