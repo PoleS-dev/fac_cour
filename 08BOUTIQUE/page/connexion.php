@@ -84,6 +84,7 @@ if ($_POST) {
             exit();
         }
     }
+ 
 
     // 🔹 Mettre à jour l'activité de l'utilisateur
     $_SESSION['LAST_ACTIVITY'] = time();

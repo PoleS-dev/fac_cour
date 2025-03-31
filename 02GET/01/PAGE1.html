@@ -1,8 +1,61 @@
 <h1>PAGE1</h1>
-<a href="PAGE2.php?article=jean&couleur=rouge&prix=123">allez sur la page 2</a>
+<a href="PAGE2.php?article=jean&couleur=rouge&prix=123">jean rouge</a>
+
+<h3>definition $_GET </h3>
+<p>$_GET est une superglobale PHP.
+    C’est un tableau associatif qui contient les paramètres envoyés dans l’URL via la méthode GET.</p>
+
+    <h3>Utilité de $_GET</h3>
+
+    <ul>
+        <li>Récupérer des données envoyées depuis : 
+            <ul>
+
+                <li>Un lien avec des paramètres (?nom=valeur)</li>
+                <li>Un formulaire HTML avec method="GET"</li>
+            </ul>
+        </li>
+
+        <li>
+            tres utilisé pour :
+
+            <ul>
+                <li>Passer des informations entre pages</li>
+                <li>Filtrer ou rechercher du contenu</li>
+                <li>Identifier un produit, un utilisateur, une page, etc.</li>
+            </ul>
+        </li>
+        
+    </ul>
+
+    <p>1. Limite de longueur d’URL
+        Les navigateurs et serveurs limitent la taille des URLs.
+        
+        En général :
+        
+        IE : 2 083 caractères max.
+        
+        Apache/Nginx : configurable, souvent limité à 8 192 ou 4 096.
+        
+        Donc une grosse description peut faire planter le lien ou couper les données.</p>
 
 
-02_cote_back.php : C'est le nom du fichier PHP cible sur le serveur. Lorsque le lien est cliqué, une requête HTTP est envoyée à ce fichier.
+        <p>🔹 1. Qu’est-ce que la méthode GET ?
+            C’est une méthode HTTP qui permet d’envoyer des données via l’URL.
+            Elle est souvent utilisée pour :
+            
+            Naviguer entre pages avec des infos (ex : page.php?id=3)
+            
+            Filtrer une liste (ex : ?categorie=homme)
+            
+            Rechercher un terme (ex : ?q=jean)</p>
+
+            <p>🔹 4. Avantages de GET
+                ✅ Simple à utiliser
+                ✅ Données visibles dans l’URL (pratique pour le partage)
+                ✅ Peut être mis en favori ou partagé</p>
+
+<!-- 02_cote_back.php : C'est le nom du fichier PHP cible sur le serveur. Lorsque le lien est cliqué, une requête HTTP est envoyée à ce fichier.
 
 ? : Ce caractère indique le début des paramètres GET qui sont envoyés au fichier PHP. Les paramètres GET sont utilisés pour transmettre des informations entre les pages web via l'URL.
 
@@ -11,4 +64,4 @@ article=jean : C'est un paramètre GET. article est la clé et jean est la valeu
 
 & : Ce caractère est utilisé pour séparer plusieurs paramètres GET dans une URL.
 
-Lorsque le lien est cliqué, ces informations (article=jean, couleur=bleu, prix=30) sont envoyées au serveur via l'URL. Le serveur, utilisant le script PHP 02_cote_back.php, peut alors traiter ces informations pour effectuer une action, comme afficher les détails d'un jean bleu qui coûte 30 euros. Cela pourrait inclure extraire ces données de la base de données et les afficher sur la page web.
+Lorsque le lien est cliqué, ces informations (article=jean, couleur=bleu, prix=30) sont envoyées au serveur via l'URL. Le serveur, utilisant le script PHP 02_cote_back.php, peut alors traiter ces informations pour effectuer une action, comme afficher les détails d'un jean bleu qui coûte 30 euros. Cela pourrait inclure extraire ces données de la base de données et les afficher sur la page web.  -->
