@@ -3,46 +3,47 @@
 <h1>back</h1>
 
 <?php
-        // Récupération des paramètres de l'URL
-        $id = $_GET['id'];
-        $type = $_GET['type'];
+      
 
-        // Récupération des données POST
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $description = $_POST['description'];
+      
+      // ✅ Protection contre les accès directs sans POST
+      if ($_SERVER["REQUEST_METHOD"] === "POST") {
+          
+          // 🔐 Sécuriser l'accès aux champs POST (avec vérification d'existence)
+          $nom = isset($_POST['auteur']) ? htmlspecialchars($_POST['auteur']) : 'Non fourni';
+     
+          $description = isset($_POST['description']) ? htmlspecialchars($_POST['description']) : 'Non fournie';
+      
+          // 🔐 Sécuriser l'accès aux paramètres GET
+          $id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : 'Non spécifié';
+          $type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : 'Non spécifié';
+      
+          // ✅ Affichage des données
+          echo "<h1>Données reçues :</h1>";
+          echo "<p><strong>ID (GET)</strong> : $id</p>";
+          echo "<p><strong>Type (GET)</strong> : $type</p>";
+          echo "<p><strong>Nom (POST)</strong> : $nom</p>";
+   
+          echo "<p><strong>Description (POST)</strong> : $description</p>";
+      
+      } else {
+          // 🔒 Protection : rediriger ou message
+          echo "<p>⚠️ Ce script doit être accédé via un formulaire POST.</p>";
+      }
+      //-----------------------
+      // La superglobale $_POST
+      //-----------------------
+      // $_POST est une superglobale qui permet de récupérer les données saisies dans un formulaire.
+      
+      // $_POST est une superglobale, donc un array. Il est disponible dans tous les contextes du script, y compris au sein des fonctions.
+      
+      // Syntaxe de $_POST : $_POST = array('name1' => 'valeur input1', 'nameN' => 'valeur inputN');
+      
+      
+      
+      var_dump($_SERVER);
+      ?>
 
-        // Affichage des données
-        echo "ID (paramètre URL): " . htmlspecialchars($id) . "<br>";
-        echo "Type (paramètre URL): " . htmlspecialchars($type) . "<br>";
-        echo "Nom (POST): " . htmlspecialchars($nom) . "<br>";
-        echo "Prénom (POST): " . htmlspecialchars($prenom) . "<br>";
-        echo "description (POST): " . htmlspecialchars($description) . "<br>";
-        ?>
-
-
-    </pre>
-
-    <?php
-    //-----------------------
-    // La superglobale $_POST
-    //-----------------------
-    // $_POST est une superglobale qui permet de récupérer les données saisies dans un formulaire.
-
-    // $_POST est une superglobale, donc un array. Il est disponible dans tous les contextes du script, y compris au sein des fonctions.
-
-    // Syntaxe de $_POST : $_POST = array('name1' => 'valeur input1', 'nameN' => 'valeur inputN');
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo '<div class="result">';
-        echo '<h1>Résultats du formulaire</h1>';
-
-        echo '<p>Prénom : ' . htmlspecialchars($_POST['nom']) . '</p>';
-        echo '<p>Prénom : ' . htmlspecialchars($_POST['prenom']) . '</p>';
-        echo '<p>Description : ' . htmlspecialchars($_POST['description']) . '</p>';
-        echo '</div>';
-    }
-    ?>
 
 
 <!-- 
