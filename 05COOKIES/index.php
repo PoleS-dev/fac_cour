@@ -29,12 +29,12 @@ if (isset($_POST['login'])) {
 
 
     // on stock les données du $_POST dans les cookies avec la fonction setcookie
-    setcookie('nom', $nom, time() + (86400 * 30), "/05COOKIES","",false,true);
-    setcookie('prenom', $prenom, time() + (86400 * 30), "/05COOKIES","",false,true);
+    setcookie('name', $nom, time() + (86400 * 30), "/courPHPfacundo/05COOKIES/","",false,true);
+    setcookie('user_name', $prenom, time() + (86400 * 30), "/courPHPfacundo/05COOKIES/","",false,true);
 
-// 'username' : Le nom du cookie.
+// 'name' : Le nom du cookie.
 
-// $username : La valeur du cookie, qui est probablement le nom d'utilisateur de la personne connectée.
+// $nom : La valeur du cookie, qui est probablement le nom d'utilisateur de la personne connectée.
 
 // time() + (86400 * 30) : La date d'expiration du cookie, ici 30 jours après la date actuelle. 86400 représente le nombre de secondes en une journée, donc 86400 * 30 donne le nombre de secondes en 30 jours.
 
@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
 
 
     // Rediriger vers la sélection de langue si le cookie de langue n'existe pas
-    if (isset($_COOKIE['user_language']) && $_COOKIE["nom"] === $_SESSION["nom"] && $_COOKIE["prenom"] === $_SESSION["prenom"]) 
+    if (isset($_COOKIE['user_language']) && $_COOKIE["name"] === $_SESSION["nom"] && $_COOKIE["user_name"] === $_SESSION["prenom"]) 
     
     {
         $_SESSION['language'] = $_COOKIE['user_language'];
@@ -61,14 +61,24 @@ if (isset($_POST['login'])) {
 
     // exercice changer la langue de nom et prenom selon les données du cookies
 }
+if(array_key_exists("user_language",$_COOKIE)){
 
-$language=$_COOKIE["user_language"];
+    $language=$_COOKIE["user_language"];
+}
 ?>
 
 <form method="post">
 
 
-    <?php  echo translate('name',$language) ?> <input type="text" name="nom" value="<?php echo isset($_COOKIE['nom']) ? htmlspecialchars($_COOKIE['nom']) : ''; ?>" ><br>
-    prénom: <input type="text" name="prenom" value="<?php echo isset($_COOKIE['prenom']) ? htmlspecialchars($_COOKIE['prenom']) : ''; ?>" ><br>
+    <?php  echo translate('name',$language) ?> 
+    
+    <input type="text" name="nom" value="<?php echo isset($_COOKIE['name']) ? htmlspecialchars($_COOKIE['name']) : ''; ?>" ><br>
+
+
+
+    prénom: 
+    
+    <input type="text" name="prenom" value="<?php echo isset($_COOKIE['user_name']) ? htmlspecialchars($_COOKIE['user_name']) : ''; ?>" ><br>
+
     <input type="submit" name="login" value="Login">
 </form>

@@ -19,13 +19,44 @@ function executeRequete($base,$requete, $param = []) {
         }
     }
 
-
+debug( $base->prepare($requete));
+   
     $resultat = $base->prepare($requete);  // on prépare la requête fournie lors de l'appel de la fonction
-    $resultat->execute($param);  // on exécute en liant les marqueurs aux valeurs qui se trouvent dans l'array $param fourni lors de l'appel de la fonction
+//     🛠️ PDO prépare la requête SQL :
 
-    return $resultat;  // on retourne l'objet PDOStatement à l'endroit où la fonction executeRequete est appelée
+// Elle est analysée par le moteur SQL.
 
-}
+// Les paramètres nommés (:pseudo, :mdp) sont laissés vides pour l’instant.
+
+// Rien n’est encore envoyé à la base de données.
+
+// C’est comme si tu disais :
+
+// “Voici ma requête, je te la donne en mode brouillon pour qu’elle soit prête quand j'aurai les vraies données.”
+
+// Et ça retourne un objet spécial : PDOStatement (une sorte de requête en attente).
+    debug($resultat);
+   $resultat->execute($param);  // on exécute en liant les marqueurs aux valeurs qui se trouvent dans l'array $param fourni lors de l'appel de la fonction
+    debug($resultat);
+
+// 🚀 Là, tu exécutes la requête en injectant les vraies valeurs aux paramètres nommés.
+
+// PDO va :
+
+// vérifier les types,
+
+// protéger les données contre les attaques,
+
+// et envoyer la requête complète à MySQL.
+
+// Résultat : sécurité + performance
+// ✅ Tu évites les injections SQL
+// ✅ Tu peux réutiliser la même requête avec d'autres données
+// ✅ Tu laisses PDO faire le sale boulot
+
+  return $resultat;  // on retourne l'objet PDOStatement à l'endroit où la fonction executeRequete est appelée
+
+ }
 
 
 function redirectToRoute($route)

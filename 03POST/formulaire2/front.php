@@ -1,6 +1,6 @@
 <body>
 
-    <h5>imaginin que cette page est une pade admin pour modifier un article beauté. cette article à été recuperer via une variable qui est un tableau associatif qui contient un id non article et son text</h5>
+   
 
     <?php 
     ini_set('display_errors', 1);
@@ -16,7 +16,9 @@
     ];
 
     $id=urlencode($article["id"]);
+
     $type=urlencode($article["name"]);
+    
     $url="back.php?id=$id&type=$type"
 
     

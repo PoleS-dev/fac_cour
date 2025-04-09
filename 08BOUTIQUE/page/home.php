@@ -18,6 +18,7 @@ $resultMenbre=executeRequete($pdo,"SELECT *FROM membre");
 // Vérifier s'il y a des produits
 $produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
 $membres=$resultMenbre->fetchAll(PDO::FETCH_ASSOC);
+debug($produits);
 
 
 

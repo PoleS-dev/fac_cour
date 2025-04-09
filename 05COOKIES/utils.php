@@ -2,7 +2,7 @@
 
 
 function translate($text,$language){
-    // creation d'une fonction a appller qui contient un tableau imbriqué des langues et traductions
+    // creation d'une fonction à appeller qui contient un tableau  des langues et traductions
         $traduction=[
             'English' =>[
                 "Welcome"=>"Welcome",
@@ -12,12 +12,12 @@ function translate($text,$language){
             ],
             "French"=>[
                 "Welcome"=>"Bienvenue",
-                "text"=>"Ta langue est :",
+                "text"=>"Ta langue est : ",
                 "name"=>"nom"
             ],
             "Spanish"=>[
                 "Welcome"=>"Bienvenido",
-                "text"=>"Tu idioma es",
+                "text"=>"Tu idioma es : ",
                 "name"=> "nombre"
             ]
             ];

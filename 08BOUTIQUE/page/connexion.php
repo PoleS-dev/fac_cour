@@ -34,7 +34,7 @@ if ($_POST) {
 
 
     
-    if (empty($contenu)) { // si $contenu, c'est qu'il n'y a pas d'erreur sur le formulaire : on peut donc interroger la BDD
+    if (empty($contenu)) { // si $contenu est vide , c'est qu'il n'y a pas d'erreur sur le formulaire : on peut donc interroger la BDD
 
         $resultat = executeRequete( $pdo,"SELECT * FROM membre WHERE pseudo = :pseudo AND mdp = :mdp", array(':pseudo' => $_POST['pseudo'], ':mdp' => $_POST['mdp']));
 
@@ -44,8 +44,8 @@ if ($_POST) {
             $pseudo = $_POST['pseudo'] ?? '';
             $mdp = $_POST['mdp'] ?? '';
 
-            setcookie('pseudo', $pseudo, time() + (86400 * 30), "/");
-            setcookie('mdp', $mdp, time() + (86400 * 30), "/");
+            setcookie('pseudo', $pseudo, time() + (86400 * 30), "/courPHPfacundo/08BOUTIQUE/");
+            setcookie('mdp', $mdp, time() + (86400 * 30), "/courPHPfacundo/08BOUTIQUE/");
 
             $_SESSION['membre'] = $membre;  // nous créons une session appelée "membre" qui contient les informations provenant de la BDD
             print_r($membre);

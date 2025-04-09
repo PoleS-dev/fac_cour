@@ -21,11 +21,17 @@ print '<pre>';
 
 $language = $_SESSION['language'] ?? 'English'; // Utilisez l'anglais comme langue par défaut
 
-
-echo translate("Welcome",$language)." ". $_SESSION['prenom'] . "<br>";
-echo translate("text",$language) ." ". $_SESSION['language'];
+$prenom= htmlspecialchars($_SESSION['prenom'] );
+$salutation= translate("Welcome",$language)." ". $prenom
 ?>
+<div style="margin: auto; width:50%">
 
-<p><a href="logout.php">Logout</a></p>
 
-<p><a href="./language.php">change language</a></p>
+    <h4><?= $salutation  ?></h4>
+    <h4><?php echo translate("text",$language) ." ". $_SESSION['language'];   ?></h4>
+  
+    <h4><a href="logout.php">Logout</a></h4>
+    
+    <h4><a href="./language.php">change language</a></h4>
+
+</div>
